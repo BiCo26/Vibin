@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS sounds (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id) null,
   sound_wave VARCHAR(200),
+  audo_url TEXT,
   description TEXT,
   image VARCHAR(200)
   
