@@ -30,21 +30,23 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`PORT: ${PORT}`);
+  console.log(`Listening on port ${PORT}`);
 })
+
 
 app.get('/', (req, res) => {
   res.render('index');
 });
-const soundRoutes = require('./routes/sound-routes');
+
+
+const todosRoutes = require('./routes/sound-routes');
 app.use('/todos', todosRoutes);
 const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);
 const userRoutes = require('./routes/user-routes');
 app.use('/user', userRoutes);
-
 
 app.use('*', (req, res) => {
   res.status(400).json({
