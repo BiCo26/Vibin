@@ -10,6 +10,7 @@ const session = require('express-session');
 const passport = require('passport');
 
 const app = express();
+
 require('dotenv').config();
 
 app.use(logger('dev'));
@@ -17,14 +18,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(cookieParser());
-// app.use(session({
-//   secret: process.env.SECRET_KEY,
-//   resave: false,
-//   saveUninitialized: true,
-// }));
+
+app.use(session({
+  secret: process.env.SECRET_KEY,
+  resave: false,
+  saveUninitialized: true,
+}));
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
@@ -42,7 +43,7 @@ app.get('/', (req, res) => {
 
 
 const soundsRoutes = require('./routes/sound-routes');
-app.use('/sounds', todosRoutes);
+app.use('/sounds', soundsRoutes);
 const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);
 const userRoutes = require('./routes/user-routes');

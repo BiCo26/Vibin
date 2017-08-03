@@ -2,7 +2,7 @@ const db = require('../db/config');
 
 const Sound = {};
 
-Todo.findAll = (id) => {
+Sound.findAll = (id) => {
   return db.query(`
     SELECT * FROM sounds
     WHERE user_id = $1
@@ -37,20 +37,20 @@ Sound.update = (sound, id) => {
     user_id = $5
     WHERE id = $6
     RETURNING *
-  `, [todo.title, todo.description, todo.category, todo.completed, todo.user_id, id]);
+  `, [sound.sound_wave, sound.audio_url, sound.description, sound.completed, sound.user_id, id]); ///////////
 };
 
-Todo.destroy = (id) => {
+Sound.destroy = (id) => {
   return db.none(`
     DELETE FROM sounds
     WHERE id = $1
   `, [id])
 }
 
-Todo.complete = (id) => {
+Sound.complete = (id) => {  /////////////////
   return db.oneOrNone(`
   UPDATE sounds SET
-  completed = true
+  completed = true 
   WHERE id = $1
   `, [id]);
 }

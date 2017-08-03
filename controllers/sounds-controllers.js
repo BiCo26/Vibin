@@ -4,7 +4,7 @@ const Sound = require('../models/sound');
 
 const soundsController = {};
 
-todosController.index = (req, res) => {
+soundsController.index = (req, res) => {
   Sound.findAll(req.user.id)
     .then(todos => {
       res.render('sounds/sound-index', {
@@ -19,7 +19,7 @@ todosController.index = (req, res) => {
 soundsController.show = (req, res) => {
   Sound.findById(req.params.id)
     .then(sound => {
-      res.render('sounds/sounds-single', {
+      res.render('sounds/sound-single', {
         sound: sound,
       })
     }).catch(err => {
@@ -36,7 +36,7 @@ soundsController.create = (req, res) => {
     audio_url: req.body.audio_url,
     description: req.body.description,
     user_id: req.user.id,
-    
+
   }).then(sound => {
     console.log(sound);
     res.redirect('/sounds');
@@ -50,7 +50,7 @@ soundsController.create = (req, res) => {
 soundsController.edit = (req, res) => {
   Sound.findById(req.params.id)
     .then(sound => {
-      res.render('sounds/sound-single-edit', {
+      res.render('sounds/sound-edit', {
         todo: todo,
       })
     }).catch(err => {
@@ -59,7 +59,7 @@ soundsController.edit = (req, res) => {
   });
 }
 
-// sound_wave, audio_url, description, image
+//sound_wave, audio_url, description, image
 
 soundsController.update = (req, res) => {
   Sound.update({
@@ -67,7 +67,7 @@ soundsController.update = (req, res) => {
     audio_url: req.body.audio_url,
     description: req.body.description,
     //check "completed"
-    completed: req.body.completed,
+    completed: req.body.completed, ////////////////
     user_id: req.user.id,
   }, req.params.id).then(sound => {
     res.redirect('/sounds');
