@@ -1,0 +1,10 @@
+<% include ../partials/boilerplate %>
+
+<form method='POST' action='/sounds/<%= sound.id %>?_method=PUT'>
+  <input type='text' name='title' value='<%= sound.sound_wave %>' />
+  <input type='text' name='description' value='<%= sound.audio_url %>' />
+  <!-- <input type='text' name='category' value='<%= sound.category %>' /> -->
+  <input type='submit' value='Update it!' />
+</form>
+
+<% include ../partials/end %>

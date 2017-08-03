@@ -17,11 +17,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(cookieParser());
-app.use(session({
-  secret: process.env.SECRET_KEY,
-  resave: false,
-  saveUninitialized: true,
-}));
+// app.use(session({
+//   secret: process.env.SECRET_KEY,
+//   resave: false,
+//   saveUninitialized: true,
+// }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -32,7 +32,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+  console.log(`PORT: ${PORT}`);
 })
 
 
@@ -41,8 +41,8 @@ app.get('/', (req, res) => {
 });
 
 
-const todosRoutes = require('./routes/sound-routes');
-app.use('/todos', todosRoutes);
+const soundsRoutes = require('./routes/sound-routes');
+app.use('/sounds', todosRoutes);
 const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);
 const userRoutes = require('./routes/user-routes');

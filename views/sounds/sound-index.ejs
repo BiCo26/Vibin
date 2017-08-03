@@ -1,0 +1,26 @@
+
+<!-- sound_wave, audio_url, description, image -->
+
+<% include ../partials/boilerplate %>
+
+<% data.forEach(sound => { %>
+
+  <h3><%= sound.sound_wave %></h3>
+  <p><%= sound.audio_url %></p>
+  <p><%= sound.description %></p>
+  <p><%= sound.image %></p>
+
+  <% if (sound.completed) { %>
+
+    <span class='done'>Done!</span>
+  <% } else { %>
+    <span class='not-done' data-id='<%= sound.id %>'>Not done!</span>
+  <% } %>
+  <a href='/sounds/<%= sound.id %>'>Link</a>
+<% }) %>
+<script src='/src/main.js'></script>
+
+<% include ../partials/end %>
+
+
+<!-- sound_wave, audio_url, description, image -->
