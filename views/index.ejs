@@ -1,11 +1,50 @@
 
 <% include ./partials/boilerplate %>
 
-<div class='container'>
-  <h1><%= message %></h1>
-  <h3><%= subTitle %></h3>
-  <h1>WHOOAAA 😱</h1>
-</div>
+  <div class='container'>
+    <h1>
+      <%= message %>
+    </h1>
+    <h3>
 
 
-<% include ./partials/end %>
+    </h3>
+
+    <center>
+      <h1>RIDE THE <br> SOUND WAVE 🌊 </h1>
+    </center>
+
+  </div>
+
+
+  <div class='waveContainer'>  
+    <% if ( soundData) { %>
+      <div class = 'waveBaby'>
+        <% for (i = 0; i < soundData.length ; i++){ %>
+
+          <ul>
+            <center>
+                <form method="POST" action="sounds/add">
+                    
+                    <input id="submit" type='submit' class="add" value='Add to Favorites'/>
+                    // Alpha
+                    <input type="text" name="sound_wave" id="sound_wave" value = '<%= soundData[i].sound_wave %>'>
+                    <input type="text" name="description" id="sound_wave" value = '<%= soundData[i].description %>'>
+
+                    <iframe class='alpha' src = ' <%= soundData[i].audio_url %>' width="500" height="315" frameborder="0" allowfullscreen></iframe>
+
+                </form>
+
+            </center>      
+        </ul>
+       <% } %>
+    <% } %>
+     
+  </div>
+
+</script>
+  <footer>
+
+    ◊    Bi∆nc∆ Cørtes®    ◊
+
+    <% include ./partials/end %>

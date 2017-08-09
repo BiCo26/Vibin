@@ -1,5 +1,3 @@
-
-
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
@@ -17,8 +15,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
+app.use(express.static('public'));
 app.use(cookieParser());
-
 app.use(session({
   secret: process.env.SECRET_KEY,
   resave: false,
@@ -26,31 +24,38 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static('public'));
 
-app.set('view engine', 'ejs');
+
 app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`PORT: ${PORT}`);
-})
-
-
-app.get('/', (req, res) => {
-  res.render('index');
+const port = process.env.PORT || 3002 ;
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
 });
 
+app.get("/", function(req,res){
+  res.render("index",{
+    message:'',
+    currentPage:'',
+    subTitle:'',
+    
+  })
+})
 
-const soundsRoutes = require('./routes/sound-routes');
-app.use('/sounds', soundsRoutes);
+// const placesRoutes = require('./routes/places-routes');
+// app.use('/places', placesRoutes);
+
 const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);
+
 const userRoutes = require('./routes/user-routes');
 app.use('/user', userRoutes);
 
-app.use('*', (req, res) => {
-  res.status(400).json({
-    message: 'Not found!',
-  });
+const soundsRoutes = require('./routes/sound-routes');
+app.use('/sounds', soundsRoutes);
+
+// Error handler!
+app.get('*', (req, res) => {
+    res.status(404).send('not found!');
 });

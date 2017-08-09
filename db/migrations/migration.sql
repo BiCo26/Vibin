@@ -3,6 +3,13 @@
 -- CREATE DATABASE sound_waves;
 \c sound_waves;
 
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS sounds CASCADE;
+DROP TABLE IF EXISTS sound_faves CASCADE;
+
+
+
+
 
 CREATE TABLE IF NOT EXISTS users (
   id_users SERIAL PRIMARY KEY,
@@ -13,7 +20,6 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS sounds (
   id SERIAL PRIMARY KEY,
-  user_id INTEGER REFERENCES users(id_users) null,
   sound_wave VARCHAR(200),
   audio_url TEXT, 
   description TEXT,
@@ -21,10 +27,10 @@ CREATE TABLE IF NOT EXISTS sounds (
 );
 
 CREATE TABLE IF NOT EXISTS sound_faves (
-  user_id SERIAL PRIMARY KEY,
-  fave_id INTEGER
+  user_id SERIAL REFERENCES users(id_users),
+  fave_id INTEGER REFERENCES sounds(id),
+  fave_name TEXT
 );
 
-
-\c seeds/seed.sql;
-\c seeds/sounds.sql;
+-- \c seeds/seed.sql;
+-- \c seeds/sounds.sql;

@@ -1,0 +1,176 @@
+
+*{
+  margin: 0;
+  
+}
+body{
+    background-color: palevioletred;
+    font-family: 'Exo 2', san-serif;
+    text-decoration: none;
+}
+
+
+textarea, .inputInfo,label ,h3{
+    background: 0;
+    border: 0;
+    overflow: visible;
+    outline: 0;
+    height: auto;
+    font-size: 1.5em;
+    color: black;
+    text-decoration: none;
+}
+
+  .an{
+    width: 100%;
+    height: 40px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+  }
+h1 {
+ 
+ font-size: 40px;
+ font-family: 'Audiowide';
+}
+
+.stubborn span{
+  text-decoration: none;
+}
+
+  nav {
+    
+    text-align: center;
+    width: 100%;
+    background-color:  transparent;
+    margin: 0;
+    top:100%;
+    margin: 2% 5% 3% 5%;
+    background-color: skyblue;
+  }
+
+  iframe{
+    padding: 5px;
+    border: solid black;
+  }
+
+  nav > ul {
+    list-style: none;
+    display: inline-block;
+    background-color: transparent;
+    width: 100%;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    
+  }
+  li .li a{
+    text-decoration: none;
+  }
+
+
+  nav > ul > .li {
+     float: left; 
+     width: 12%; 
+    height: 50px;
+    position: relative;
+    font-size: 22px;
+    color: purple;
+    cursor: progress;
+    text-decoration: none;
+    padding-top: 20px;
+    
+    
+  }
+
+  .navUL {
+    margin-right: 10%;
+  }
+
+  nav > ul > li:hover > ul{
+      top:100%;
+      color: white;
+      text-decoration: none;
+      text-decoration: none;
+      
+  }
+
+  nav > ul > li:hover {
+    background-color:rgba(0,0,0,0.1 );
+    border:palevioletred 2px double;
+    text-decoration: none;
+    
+
+  }
+
+  ul.drop-menu {
+    position: absolute;
+    bottom: 100%;
+    width: 100%;
+    text-decoration: none;
+  }
+
+  ul.drop-menu .li {
+    background:  rgba(0,0,0,0.5 );
+    color: black;
+    text-decoration: none;
+  }
+
+  ul.drop-menu li:hover {
+    background:  rgba(0,0,0,0.3 );
+    color: black;
+    text-decoration: none;
+
+  }
+
+  ul.drop-menu li:last-child {
+    border-radius: 0px 0px 5px 5px;
+    text-decoration: none;
+  }
+
+  ul.drop-menu li {
+    display: none;
+    text-decoration: none;
+  }
+
+  li:hover > ul.drop-menu li {
+    display: block;
+    text-decoration: none;
+    
+  }
+
+  li:hover > ul .drop-menu .subMenu {
+    perspective: 1000px;
+    text-decoration: none;
+  }
+
+  li:hover > ul .drop-menu .subMenu li{
+    opacity: 0;
+    text-decoration: none;
+  }
+
+.waveContainer{
+  display: flex;
+  flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   flex-flow: column wrap;
+   align-content: center;
+}
+/* iframe{
+  
+} */
+
+  footer {
+    font-family: 'Audiowide';
+    border-top: solid black;
+    background-color: skyblue;
+  }
+  .menu {
+    /* float: left; */
+    width: 100%;
+    margin-right: 250%;
+    background-color: skyblue;
+    font-family: 'Audiowide';
+    
+  }

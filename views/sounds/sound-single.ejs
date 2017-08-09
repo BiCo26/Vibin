@@ -2,13 +2,13 @@
 
 <% include ../partials/boilerplate %>
 
-  <h3><%= sound.sound_wave %></h3>
+  <h3><%= sounds.sound_wave %></h3>
   
   
-  <% if (sound.fave_pick) { %>
-    <span class='done'>Done!</span>
+  <% if (sounds.fave_pick) { %>
+    <span class='done'>placeholder!</span>
   <% } else { %>
-    <span class='not-done'>Not done!</span>
+    <span class='not-done'>placeholder!</span>
   <% } %>
   <a href='/sounds/<%= sound.id %>/edit'>Edit it!</a>
   <form method='POST' action='/sounds/<%= sound.id %>?_method=DELETE'>
