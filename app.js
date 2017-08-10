@@ -36,16 +36,14 @@ app.listen(port, () => {
 
 app.get("/", function(req,res){
   res.render("index",{
-    message:'Welcome to my amazing page',
+    message:'',
     currentPage:'',
-    subTitle:'  THE 🦄 THAT 💩 🌈   ',
+    subTitle:'   ',
     soundData:{},
     
   })
 })
 
-// const placesRoutes = require('./routes/places-routes');
-// app.use('/places', placesRoutes);
 
 const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);
@@ -56,7 +54,7 @@ app.use('/user', userRoutes);
 const soundsRoutes = require('./routes/sound-routes');
 app.use('/sounds', soundsRoutes);
 
-// Error handler!
+// Error handler
 app.get('*', (req, res) => {
     res.status(404).send('not found!');
 });

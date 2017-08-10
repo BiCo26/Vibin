@@ -10,13 +10,12 @@ INSERT INTO sounds (sound_wave, audio_url, description, image) VALUES
 ),
 ('Beta Wave',
 'https://youtube.com/embed/XtLz_qOknnk',
-'Frequency range of between 12.5 and 30 Hz (12.5 to 30 transitions or cycles per second).',
+'Frequency range of between 12.5-30 Hz cycles per second.',
 '../../public/images/wave.gif'
 ),
 ('Delta Wave',
 'https://youtube.com/embed/JnhFsHyeeNQ',
-'For deep levels of sleep, relaxation, and peace of mind.
-',
+'For deep levels of sleep, relaxation, and peace of mind.',
 '../../public/images/trippy.gif'
 ),
 ('Nerve Regeneration Wave',
@@ -26,16 +25,16 @@ INSERT INTO sounds (sound_wave, audio_url, description, image) VALUES
 ),
 ('Theta Wave',
 'https://youtube.com/embed/NiMb8cenHpk',
-'Frequency range of 4-7 Hz, connected to advanced meditation ',
+'Frequency range of 4-7 Hz, connected to advanced meditation.',
 '../../public/images/trippy.gif'
 ),
 ('WorkOut Wave',
 'https://youtube.com/embed/aba2PliHxyc',
-'Intense 16 Hz Binaural Beats for Sports, Exercise ',
+'Intense 16 Hz Binaural Beats for Sports, Exercise.',
   '../../public/images/wave.gif'
 ),
   ('Gamma Wave',
 'https://youtube.com/embed/DHGPl4vJXU4',
-'Frequency between 25, 40, 100 Hz, implicated in creating the unity of conscious perception',
+'Frequency between 25-100 Hz implicated in creating the unity of conscious perception.',
 '../../public/images/wave.gif'
 );

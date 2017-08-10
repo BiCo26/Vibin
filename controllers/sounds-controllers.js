@@ -5,14 +5,14 @@ const Sound = require('../models/sound');
 const soundsController = {};
 
 soundsController.index = (req, res) => {
-  console.log("Im here");
+  console.log("Index");
   Sound.findAll()
     .then(sound => {
       console.log(sound);
       res.render('./index', {
         currentPage: 'index',
         message: 'Wave List ',
-        subTitle: 'Im the the controller ',
+        subTitle: ' ',
         soundData: sound,
       });
     }).catch(err => {
@@ -22,14 +22,14 @@ soundsController.index = (req, res) => {
 };
 
 soundsController.soundFaveIndex = (req, res) => {
-  console.log('fAVES');
+  console.log('Faves');
   Sound.findAllFaves(process.env.user_id) 
   .then(sound => {
     console.log(sound);
     res.render('./sounds/sound-fave-index', {
       currentPage: 'sound-fave-index',
-      message: 'List of favs',
-      subTitle: 'Im in the constroller',
+      message: 'List of Favorites',
+      subTitle: '',
       soundData: sound,
     });
   }).catch(err => {
@@ -53,61 +53,6 @@ soundsController.create = (req, res) => {
     res.status(500).json({ err });
   });
 };
-// soundsController.show = (req, res) => {
-//   Sound.findById(req.params.id)
-//     .then(sound => {
-//       res.render('sounds/sound-single', {
-//         soundData: sound,
-//       })
-//     }).catch(err => {
-//       console.log(err);
-//       res.status(500).json({ err });
-//     });
-// }
-
-// // sound_wave, audio_url, description, image
-
-
-
-// //app.get("/", function(req,res){
-// //   res.render("index",{
-// //     message:'',
-// //     currentPage:'',
-// //     subTitle:'',
-    
-// //   })
-// // })
-
-// soundsController.get = (req, res) => {
-//   Sound.findById(req.params.)
-//   res.render('sounds/sound-index', {
-//           currentPage: 'index',
-//           message: 'ok',
-//           soundData: sounds,
-//         });
-//       }).catch(err => {
-//         console.log(err);
-//         res.status(500).json({ err });
-//       })
-  
-//   };
-
-
-
-// //CHECK SOUND-SINGLE-EDIT
-// soundsController.edit = (req, res) => {
-//   Sound.findById(req.params.id)
-//     .then(sound => {
-//       res.render('sounds/sound-edit', {
-//         soundData: sound,
-//       })
-//     }).catch(err => {
-//     console.log(err);
-//     res.status(500).json({ err });
-//   });
-// }
-
-// //sound_wave, audio_url, description, image
 
 
 

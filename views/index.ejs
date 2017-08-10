@@ -2,16 +2,7 @@
 <% include ./partials/boilerplate %>
 
   <div class='container'>
-    <h1>
-      <%= message %>
-    </h1>
-    <h1>
-      <%= subTitle %>
-    </h1>
-    <h3>
-
-
-    </h3>
+    
 
     <center>
       <h1>RIDE THE <br> SOUND WAVE 🌊 </h1>
@@ -31,10 +22,9 @@
                     
                     <input id="submit" type='submit' class="add" value='Add to Favorites'/>
                     
-                    <!-- <input type="text" name="id" value = '<%= soundData[i].id %>'> -->
+                    
                     <input type="text" name="sound_wave" value = '<%= soundData[i].sound_wave %>'>
-                    <input type="text" name="description"value = '<%= soundData[i].description %>'>
-                    <!-- <input type="text" name="audio_url" value = '<%= soundData[i].audio_url %>'> -->
+                    
 
                     <iframe   class='alpha' src = ' <%= soundData[i].audio_url %>' width="500" height="315" frameborder="0" allowfullscreen></iframe>
 

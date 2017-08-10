@@ -12,14 +12,14 @@ Sound.findAll =  function(){
   return db.query(` SELECT * FROM sounds`);
 };
 
-//query is many // one is one!!!
+//query is many // one is 1 query *
 
 Sound.findById = function(id) {
   return db.one(
     `SELECT * FROM sounds WHERE id = $1`,
    [id]);
 };
-                            //param is a var PICK any name
+                            //param is a var can PICK any name
 Sound.findAllFaves = function(userId){
   return db.query(`
   SELECT F.* ,s.description,s.audio_url FROM sound_faves F  inner join sounds s on s.id=f.fave_id WHERE F.user_id = $1`,
