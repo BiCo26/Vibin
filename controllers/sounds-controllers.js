@@ -5,14 +5,15 @@ const Sound = require('../models/sound');
 const soundsController = {};
 
 soundsController.index = (req, res) => {
+  console.log("Im here");
   Sound.findAll()
-
-    .then(sounds => {
-        console.log(sounds);
+    .then(sound => {
+      console.log(sound);
       res.render('./index', {
         currentPage: 'index',
-        message: 'ok',
-        soundData: sounds,
+        message: 'Wave List ',
+        subTitle: 'Im the the controller ',
+        soundData: sound,
       });
     }).catch(err => {
       console.log(err);
@@ -20,6 +21,38 @@ soundsController.index = (req, res) => {
     });
 };
 
+soundsController.soundFaveIndex = (req, res) => {
+  console.log('fAVES');
+  Sound.findAllFaves(process.env.user_id) 
+  .then(sound => {
+    console.log(sound);
+    res.render('./sounds/sound-fave-index', {
+      currentPage: 'sound-fave-index',
+      message: 'List of favs',
+      subTitle: 'Im in the constroller',
+      soundData: sound,
+    });
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({err});
+  });
+};
+
+soundsController.create = (req, res) => {  
+  Sound.create({
+    fave_id: req.body.id,
+    fave_wave: req.body.sound_wave,
+    fave_url: req.body.audio_url, //change
+    fave_description: req.body.description,
+    user_id:process.env.user_id,
+  }).then(sound => {
+    console.log(sound);
+    res.redirect('/sounds');
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({ err });
+  });
+};
 // soundsController.show = (req, res) => {
 //   Sound.findById(req.params.id)
 //     .then(sound => {
@@ -34,21 +67,7 @@ soundsController.index = (req, res) => {
 
 // // sound_wave, audio_url, description, image
 
-soundsController.create = (req, res) => {
-  console.log(req.body);
-  Sound.create({
-    sound_wave: req.body.sound_wave,
-    audio_url: req.body.video1, //change
-    description: req.body.description,
-    user_id:process.env.user_id,
-  }).then(sound => {
-    console.log(sound);
-    res.redirect('/sounds');
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json({ err });
-  });
-};
+
 
 // //app.get("/", function(req,res){
 // //   res.render("index",{

@@ -1,40 +1,22 @@
 
-<% include ./partials/boilerplate %>
+<!-- sound_wave, audio_url, description, image -->
 
-  <div class='container'>
-    <h1>
-      <%= message %>
-    </h1>
-    <h1>
-      <%= subTitle %>
-    </h1>
-    <h3>
+<% include ../partials/boilerplate %>
 
-
-    </h3>
-
-    <center>
-      <h1>RIDE THE <br> SOUND WAVE 🌊 </h1>
-    </center>
-
-  </div>
-
-
-  <div class='waveContainer'>  
     <% if ( soundData) { %>
       <div class = 'waveBaby'>
         <% for (i = 0; i < soundData.length ; i++){ %>
 
           <ul>
             <center>
-                <form method="POST" action="sounds/add">
+                <form method="POST" action="">
                     
                     <input id="submit" type='submit' class="add" value='Add to Favorites'/>
                     
-                    <!-- <input type="text" name="id" value = '<%= soundData[i].id %>'> -->
+                    <input type="text" name="id" value = '<%= soundData[i].id %>'>
                     <input type="text" name="sound_wave" value = '<%= soundData[i].sound_wave %>'>
                     <input type="text" name="description"value = '<%= soundData[i].description %>'>
-                    <!-- <input type="text" name="audio_url" value = '<%= soundData[i].audio_url %>'> -->
+                    <input type="text" name="audio_url" value = '<%= soundData[i].audio_url %>'>
 
                     <iframe   class='alpha' src = ' <%= soundData[i].audio_url %>' width="500" height="315" frameborder="0" allowfullscreen></iframe>
 
@@ -44,12 +26,12 @@
         </ul>
        <% } %>
     <% } %>
-     
-  </div>
 
-</script>
-  <footer>
+<% include ../partials/end %>
 
-    ◊    Bi∆nc∆ Cørtes®    ◊
 
-    <% include ./partials/end %>
+<!-- sound_wave, audio_url, description, image -->
+<!-- EVERYTHING ABOVE THIS LINE ACTUALLY MAKES NO SENSE -->
+
+
+

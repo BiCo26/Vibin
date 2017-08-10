@@ -11,7 +11,8 @@ module.exports = () => {
   passport.deserializeUser((username, done) => {
     User.findByUserName(username)
       .then(user => {
-        process.env.user_id = user.id;
+        console.log(user);
+        process.env.user_id = user.id_users;
         done(null, user);
       }).catch(err => {
         done(err, null);

@@ -6,6 +6,7 @@ const authHelpers = require('../services/auth/auth-helpers');
 const soundsController = require('../controllers/sounds-controllers');
 
 soundsRouter.get('/', soundsController.index);
+soundsRouter.get('/userFaves', soundsController.soundFaveIndex  );
 //////
 soundsRouter.post('/add', soundsController.create);
 

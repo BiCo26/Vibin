@@ -29,16 +29,17 @@ app.use(passport.session());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-const port = process.env.PORT || 3002 ;
+const port = process.env.PORT || 3001 ;
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
 app.get("/", function(req,res){
   res.render("index",{
-    message:'',
+    message:'Welcome to my amazing page',
     currentPage:'',
-    subTitle:'',
+    subTitle:'  THE 🦄 THAT 💩 🌈   ',
+    soundData:{},
     
   })
 })

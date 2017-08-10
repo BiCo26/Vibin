@@ -22,20 +22,17 @@ Sound.findById = function(id) {
                             //param is a var PICK any name
 Sound.findAllFaves = function(userId){
   return db.query(`
-  SELECT * FROM sound_faves WHERE user_id = $1`,
+  SELECT F.* ,s.description,s.audio_url FROM sound_faves F  inner join sounds s on s.id=f.fave_id WHERE F.user_id = $1`,
   [userId])
 }
+
 
 Sound.create = function(faves) {
   console.log(faves);
   return db.one(`
-    INSERT INTO sound_faves (user_id, fave_id, fave_name) VALUES ($1, $2, $3) RETURNING *`,
-     [faves.user_id, faves.fave_id, faves.fave_name]);
+    INSERT INTO sound_faves(user_id, fave_id, fave_name) VALUES ($1, $2, $3) RETURNING *`,
+     [faves.user_id, faves.fave_id, faves.fave_description]);
 };
-
-//CHECK ID
-
-///rendering Index
 
 
 Sound.update = (faves, faveId) => {

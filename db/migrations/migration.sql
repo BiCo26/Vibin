@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS sounds (
 );
 
 CREATE TABLE IF NOT EXISTS sound_faves (
-  user_id SERIAL REFERENCES users(id_users),
+  user_id INTEGER REFERENCES users(id_users),
   fave_id INTEGER REFERENCES sounds(id),
   fave_name TEXT
 );
